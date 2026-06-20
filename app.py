@@ -44,12 +44,12 @@ def predict():
     pred = model.predict(img)
     score = float(pred[0][0])
     
-    # Class 0 is Benign (Non-Cancer), Class 1 is Malignant (Cancer)
+    # Class 0 is Malignant (Cancer), Class 1 is Benign (Non-Cancer)
     if score > 0.5:
-        result = "Cancer"
+        result = "Non-Cancer"
         confidence = score * 100
     else:
-        result = "Non-Cancer"
+        result = "Cancer"
         confidence = (1.0 - score) * 100
 
     # Determine confidence level and clinical interpretation

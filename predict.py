@@ -20,6 +20,6 @@ pred = model.predict(img)
 score = float(pred[0][0])
 
 if score > 0.5:
-    print(f"Cancer ({score:.4f})")
-else:
     print(f"Non-Cancer ({score:.4f})")
+else:
+    print(f"Cancer ({score:.4f})")
