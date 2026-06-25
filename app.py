@@ -9,7 +9,7 @@ import os
 
 app = Flask(__name__)
 
-# Load model
+
 model = load_model("models/skin_model.h5")
 
 UPLOAD_FOLDER = "static/uploads"

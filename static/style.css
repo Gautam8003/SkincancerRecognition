@@ -1,0 +1,435 @@
+/* Beginner level styling for Dermalyze AI */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f7f6;
+  color: #333333;
+  padding: 30px 15px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #dddddd;
+  padding-bottom: 15px;
+}
+
+.logo-icon {
+  width: 48px;
+  height: 48px;
+  background-color: #007bff;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.logo-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: #ffffff;
+}
+
+h1 {
+  font-size: 28px;
+  color: #333333;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  color: #666666;
+  font-size: 14px;
+}
+
+/* 2-Column Layout */
+.main-layout {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.column-left, .column-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Mobile responsive layout */
+@media (max-width: 768px) {
+  .main-layout {
+    flex-direction: column;
+  }
+}
+
+/* Upload Section */
+.upload-zone {
+  border: 2px dashed #007bff;
+  border-radius: 6px;
+  padding: 30px 15px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #fafafa;
+  position: relative;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-zone:hover, .upload-zone.dragover {
+  background-color: #eef5ff;
+  border-color: #0056b3;
+}
+
+.upload-zone input[type=file] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.upload-icon {
+  font-size: 32px;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.upload-text {
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.upload-hint {
+  color: #888888;
+  font-size: 12px;
+}
+
+/* Preview Area */
+.local-preview-wrapper {
+  display: none;
+  position: relative;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.local-preview-img {
+  max-width: 100%;
+  max-height: 150px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+}
+
+#remove-img-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #dc3545;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+#remove-img-btn:hover {
+  background-color: #c82333;
+}
+
+/* Button */
+.btn-container {
+  margin-top: 15px;
+}
+
+button {
+  width: 100%;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Placeholder card when awaiting analysis */
+.placeholder-card {
+  border: 1px dashed #cccccc;
+  background-color: #fcfcfc;
+  border-radius: 6px;
+  padding: 40px 20px;
+  text-align: center;
+  color: #666666;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 280px;
+}
+
+.placeholder-icon {
+  color: #666666;
+  margin-bottom: 5px;
+}
+
+.placeholder-card h3 {
+  font-size: 18px;
+  color: #333333;
+}
+
+.placeholder-card p {
+  font-size: 13px;
+}
+
+/* Results wrapper */
+.results-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.preview-container {
+  border: 1px solid #dddddd;
+  border-radius: 6px;
+  padding: 5px;
+  background-color: #fdfdfd;
+  display: flex;
+  justify-content: center;
+}
+
+.image-preview {
+  max-width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+}
+
+/* Result alerts */
+.result-card {
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #cccccc;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.result-card.non-cancer {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+}
+
+.result-card.cancer {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.result-title {
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.result-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.non-cancer .result-badge {
+  background-color: #28a745;
+}
+
+.cancer .result-badge {
+  background-color: #dc3545;
+}
+
+/* Confidence bars */
+.probability-section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.probability-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.progress-bar-container {
+  height: 10px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+.non-cancer .progress-bar {
+  background-color: #28a745;
+}
+
+.cancer .progress-bar {
+  background-color: #dc3545;
+}
+
+.confidence-badge {
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 1px solid;
+}
+
+.confidence-badge.high {
+  background-color: #28a745;
+  color: #ffffff;
+  border-color: #28a745;
+}
+
+.confidence-badge.medium {
+  background-color: #ffc107;
+  color: #212529;
+  border-color: #ffc107;
+}
+
+.confidence-badge.low {
+  background-color: #dc3545;
+  color: #ffffff;
+  border-color: #dc3545;
+}
+
+.interpretation-box {
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-left: 4px solid #007bff;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #333333;
+}
+
+.non-cancer .interpretation-box {
+  border-left-color: #28a745;
+}
+
+.cancer .interpretation-box {
+  border-left-color: #dc3545;
+}
+
+.disclaimer {
+  font-size: 11px;
+  color: #666666;
+  margin-top: 5px;
+}
+
+/* Errors */
+.error {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Spinner and Loader Overlay */
+.loader-overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.85);
+  z-index: 10;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  border-radius: 8px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #cccccc;
+  border-radius: 50%;
+  border-top-color: #007bff;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+  font-size: 15px;
+  font-weight: bold;
+  color: #333333;
+}
